@@ -1,0 +1,5 @@
+co\edu\unbosque\servicio_pagos\ServicioPagosApplication.class
+co\edu\unbosque\servicio_pagos\controller\ClienteController.class
+co\edu\unbosque\servicio_pagos\model\Cliente.class
+co\edu\unbosque\servicio_pagos\repository\ClienteRepository.class
+co\edu\unbosque\servicio_pagos\service\ClienteService.class
