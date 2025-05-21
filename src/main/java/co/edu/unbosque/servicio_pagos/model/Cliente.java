@@ -1,34 +1,45 @@
 package co.edu.unbosque.servicio_pagos.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
 public class Cliente {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Column(unique = true, nullable = false)
     private String identificacion;
-    
+
     @Column(nullable = false)
     private String email;
-    
+
     @Column(nullable = false)
     private String nombre;
-    
+
     @Column(nullable = false)
     private String estado = "ACTIVO";
 
+@OneToMany(mappedBy = "cliente",
+           cascade = CascadeType.ALL,
+           orphanRemoval = true)
+private List<Tarjeta> tarjetas = new ArrayList<>();
+
     public Cliente() {}
 
-    public Cliente(String identificacion, String email, String nombre, String estado) {
+    public Cliente(String identificacion, String email, String nombre) {
         this.identificacion = identificacion;
         this.email = email;
         this.nombre = nombre;
-        this.estado = estado;
+        this.estado = "ACTIVO";
     }
+
 
     public Long getId() {
         return id;
@@ -70,6 +81,14 @@ public class Cliente {
         this.estado = estado;
     }
 
+    public List<Tarjeta> getTarjetas() {
+        return tarjetas;
+    }
+
+    public void setTarjetas(List<Tarjeta> tarjetas) {
+        this.tarjetas = tarjetas;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
@@ -78,6 +97,7 @@ public class Cliente {
                 ", email='" + email + '\'' +
                 ", nombre='" + nombre + '\'' +
                 ", estado='" + estado + '\'' +
+                ", tarjetas=" + tarjetas +
                 '}';
     }
 }
