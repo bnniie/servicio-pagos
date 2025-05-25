@@ -1,0 +1,319 @@
+body {
+  background-image: url("https://images.unsplash.com/photo-1503862242163-608ef852091d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjk5fHxtb29ufGVufDB8fDB8fHww");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+}
+
+//card
+
+.card {
+  border-radius: 16px;
+  background-color: #ffffff;
+  min-width: none;
+  justify-content: center;
+      align-items: center;
+ margin-top: 2rem;
+ 
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  .visa-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+      transform: rotate(25deg);
+      pointer-events: none;
+    }
+  }
+}
+
+  .logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #f1c40f;
+    text-align: right;
+    margin-bottom: 20px;
+  }
+
+  .chip {
+    margin-bottom: 20px;
+  }
+
+  .number-field {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .valid-thru-label {
+    text-align: right;
+    font-size: 12px;
+    opacity: 0.7;
+    margin-top: 10px;
+  }
+
+  .expiry {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    font-size: 16px;
+    margin-top: 2px;
+  }
+
+  .name-field {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+// Input reset styles
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+
+  .card {
+    min-width: 800px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    margin: 2rem auto;
+
+    .card-title {
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 900; 
+      font-size: 36px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      label {
+        flex: 1;
+        font-weight: 800;
+        color: white;
+        margin-right: 1rem;
+        text-align: right;
+      }
+
+      input {
+        flex: 2;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        color: white;
+        padding: 0.5rem;
+        font-size: 1rem;
+        text-align: left;
+
+        &:focus {
+          outline: none;
+          border-bottom: 2px solid #fff;
+        }
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+    }
+
+    .btn {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.text-danger {
+  color: #dc3545; // rojo Bootstrap
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+
+.boton-registrar {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    max-width: 300px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+
+    &.btn-warning {
+      background-color: #f1c40f;
+      color: #000;
+    }
+
+    &.btn-secondary {
+      background-color: #6c757d;
+      color: #fff;
+      cursor: not-allowed;
+    }
+  }
+}
+
+
+//tabla
+
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    color: white;
+    overflow-x: auto;
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+
+      thead {
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+
+        th {
+          padding: 1rem;
+          color: #f1c40f;
+          font-weight: bold;
+          text-align: center;
+          font-size: 1rem;
+        }
+      }
+
+      tbody {
+        tr {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.2);
+          }
+
+          td {
+            padding: 1rem;
+            text-align: center;
+            color: white;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          }
+
+          td:first-child {
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+          }
+
+          td:last-child {
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.actions-cell {
+  .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px; // separación entre botones
+    flex-wrap: wrap;
+  }
+}
+
+
+.table .btn-action {
+  font-weight: bold;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: none;
+
+  &.btn-edit {
+    background-color: #f1c40f; // dorado
+    color: #000;
+
+    &:hover {
+      background-color: #d4af37;
+      color: white;
+    }
+  }
+
+  &.btn-delete {
+    background-color: transparent;
+    border: 2px solid #f1c40f;
+    color: #f1c40f;
+
+    &:hover {
+      background-color: #f1c40f;
+      color: #000;
+    }
+  }
+}
