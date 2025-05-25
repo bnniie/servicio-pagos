@@ -1,0 +1,188 @@
+
+  <!-- Tarjeta flotante -->
+    <div class="card-container">
+        <div class="card visa-card">
+        <div class="logo text-end pe-3 pt-2 fw-bold">Tarjeta</div>
+
+        <div class="chip text-center">
+          <svg viewBox="0 0 50 40" width="50" height="40" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="metalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#d4af37" />
+                <stop offset="100%" stop-color="#b8860b" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="0" rx="6" ry="6" width="50" height="40" fill="url(#metalGradient)" stroke="#fff" stroke-width="1"/>
+            <rect x="10" y="8" width="30" height="24" rx="2" fill="none" stroke="#fff" stroke-width="0.8"/>
+            <path d="M15 8 V32 M25 8 V32 M35 8 V32" stroke="#fff" stroke-width="0.8"/>
+            <path d="M10 20 H40" stroke="#fff" stroke-width="0.8"/>
+          </svg>
+        </div>
+
+        <div class="number-field text-center text-white fs-5 fw-semibold">
+          {{ formulario.get('numero')?.value || '**** **** **** ****' }}
+        </div>
+
+        <div class="valid-thru-label text-center small">VALID THRU</div>
+        <div class="expiry text-center fw-bold">
+          {{ formulario.get('fechaVencimiento')?.value || 'MM/YYYY' }}
+        </div>
+
+        <div class="name-field text-center mt-2">
+          {{ formulario.get('nombreCompleto')?.value || 'NOMBRE COMPLETO' }}
+        </div>
+      </div>
+    </div>
+  
+
+  
+    <!-- FORMULARIO -->
+<!-- FORMULARIO -->
+<div class="form-wrapper container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Registrar Cliente</h4>
+      <form [formGroup]="formulario" (ngSubmit)="registrarCliente()">
+        <div class="form-group">
+          <label for="identificacion">Identificación</label>
+          <input type="text" id="identificacion" formControlName="identificacion" />
+        </div>
+        <div class="form-group">
+          <label for="nombreCompleto">Nombre Completo</label>
+          <input type="text" id="nombreCompleto" formControlName="nombreCompleto" />
+        </div>
+        <div class="form-group">
+          <label for="correoElectronico">Correo Electrónico</label>
+          <input type="email" id="correoElectronico" formControlName="correoElectronico" />
+        </div>
+        <div class="form-group">
+  <label for="numero">Número de Tarjeta</label>
+  <input
+    type="text"
+    id="numero"
+    class="form-control"
+    formControlName="numero"
+    maxlength="16"
+    inputmode="numeric"
+    pattern="\d*"
+  />
+</div>
+<div *ngIf="formulario.get('numero')?.invalid && formulario.get('numero')?.touched" class="text-danger small ps-2">
+  <span *ngIf="formulario.get('numero')?.errors?.['required']">Este campo es obligatorio.</span>
+  <span *ngIf="formulario.get('numero')?.errors?.['pattern']">Debe contener exactamente 16 números sin letras.</span>
+</div>
+        <div class="form-group">
+  <label for="fechaVencimiento" class="text-white">Fecha de Vencimiento (MM/YYYY)</label>
+  <input
+    type="text"
+    id="fechaVencimiento"
+    formControlName="fechaVencimiento"
+    class="form-control text-center"
+    placeholder="MM/YYYY"
+    maxlength="7"
+  />
+  <div *ngIf="formulario.get('fechaVencimiento')?.invalid && formulario.get('fechaVencimiento')?.touched" class="text-danger small ps-2">
+    <span *ngIf="formulario.get('fechaVencimiento')?.errors?.['required']">Este campo es obligatorio.</span>
+    <span *ngIf="formulario.get('fechaVencimiento')?.errors?.['pattern']">Formato inválido. Use MM/YYYY.</span>
+  </div>
+</div>
+        <div class="form-group">
+          <label for="cupoTotal">Cupo Total</label>
+          <input type="number" id="cupoTotal" formControlName="cupoTotal" />
+        </div>
+        <div class="form-group">
+          <label for="cupoDisponible">Cupo Disponible</label>
+          <input type="number" id="cupoDisponible" formControlName="cupoDisponible" />
+        </div>
+<div class="boton-registrar">
+  <button
+    type="submit"
+    class="btn"
+    [disabled]="formulario.invalid"
+    [ngClass]="{
+      'btn-warning': formulario.valid,
+      'btn-secondary': formulario.invalid
+    }"
+  >
+    Registrar
+  </button>
+</div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+    <!-- TABLA -->
+<!-- TABLA -->
+<div class="table-wrapper">
+  <div class="card">
+    <div class="card-body p-0">
+      <div class="table-responsive">
+        <table class="table table-hover text-center">
+          <thead>
+            <tr>
+              <th>ID Cliente</th>
+              <th>Identificación</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>N° Tarjeta</th>
+              <th>Franquicia</th>
+              <th>Fecha Vencimiento</th>
+              <th>Estado</th>
+              <th>Cupo Total</th>
+              <th>Cupo Disponible</th>
+              <th>Cupo Utilizado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let cliente of clientes">
+              <tr *ngFor="let tarjeta of cliente.tarjetas">
+                <td>{{ cliente.id }}</td>
+                <td>{{ cliente.identificacion }}</td>
+                <td>{{ cliente.nombre }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>{{ tarjeta.numero }}</td>
+                <td>{{ tarjeta.franquicia }}</td>
+                <td>{{ tarjeta.fechaVencimiento }}</td>
+                <td>
+                  <span [ngClass]="{
+                    'text-success fw-bold': tarjeta.estado === 'ACTIVO',
+                    'text-danger fw-bold': tarjeta.estado === 'INACTIVO'
+                  }">{{ tarjeta.estado }}</span>
+                </td>
+                <td *ngIf="tarjetaEnEdicionId === tarjeta.id; else mostrarCupo">
+  <input
+    type="number"
+    class="form-control text-center"
+    [(ngModel)]="nuevoCupoTotal"
+    (keydown.enter)="guardarCupoAlEnter(tarjeta)"
+    min="0"
+    style="width: 120px; margin: auto;"
+  />
+</td>
+
+<ng-template #mostrarCupo>
+  <td>{{ tarjeta.cupoTotal | currency: 'COP' }}</td>
+</ng-template>
+                <td>{{ tarjeta.cupoDisponible | currency:'COP' }}</td>
+                <td>{{ tarjeta.cupoUtilizado | currency:'COP' }}</td>
+   <td>
+  <button class="btn btn-sm btn-warning" (click)="editarCupo(tarjeta)">Editar</button>
+  <button class="btn btn-sm btn-outline-danger" (click)="eliminarTarjeta(tarjeta)">Eliminar</button>
+</td>
+
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+
