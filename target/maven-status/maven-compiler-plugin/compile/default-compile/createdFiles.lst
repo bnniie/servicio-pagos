@@ -1,5 +1,13 @@
+co\edu\unbosque\servicio_pagos\repository\TarjetaRepository.class
+co\edu\unbosque\servicio_pagos\model\Tarjeta.class
+co\edu\unbosque\servicio_pagos\controller\TarjetaController$EstadoRequest.class
 co\edu\unbosque\servicio_pagos\ServicioPagosApplication.class
+co\edu\unbosque\servicio_pagos\controller\TarjetaController$CupoTotalRequest.class
+co\edu\unbosque\servicio_pagos\repository\ClienteRepository.class
+co\edu\unbosque\servicio_pagos\controller\CorsConfig$1.class
+co\edu\unbosque\servicio_pagos\controller\CorsConfig.class
+co\edu\unbosque\servicio_pagos\service\TarjetaService.class
 co\edu\unbosque\servicio_pagos\controller\ClienteController.class
 co\edu\unbosque\servicio_pagos\model\Cliente.class
-co\edu\unbosque\servicio_pagos\repository\ClienteRepository.class
 co\edu\unbosque\servicio_pagos\service\ClienteService.class
+co\edu\unbosque\servicio_pagos\controller\TarjetaController.class

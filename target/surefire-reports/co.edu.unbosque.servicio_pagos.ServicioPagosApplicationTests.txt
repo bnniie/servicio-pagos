@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: co.edu.unbosque.servicio_pagos.ServicioPagosApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.840 s -- in co.edu.unbosque.servicio_pagos.ServicioPagosApplicationTests

@@ -1,5 +1,10 @@
 C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\controller\ClienteController.java
+C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\controller\CorsConfig.java
+C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\controller\TarjetaController.java
 C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\model\Cliente.java
+C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\model\Tarjeta.java
 C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\repository\ClienteRepository.java
+C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\repository\TarjetaRepository.java
 C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\service\ClienteService.java
+C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\service\TarjetaService.java
 C:\Users\paula\servicio-pagos\src\main\java\co\edu\unbosque\servicio_pagos\ServicioPagosApplication.java
